@@ -1,0 +1,62 @@
+#Assignment: Assignment 3.2
+#Name: August, Gianna
+#Date: 21-06-2020
+
+###Exercise 3-1
+from __future__ import print_function
+
+import numpy as np
+import sys
+
+import nsfg
+import first
+import thinkstats2
+import thinkplot
+import statistics 
+
+resp = nsfg.ReadFemResp()
+
+pmf = thinkstats2.Pmf(resp.numkdhh, label = 'numkdhh')
+
+thinkplot.Pmf(pmf)
+thinkplot.Config(xlabel = 'Number of children', ylabel = 'PMF')
+
+biased = BiasPmf(pmf, label = 'biased')
+
+thinkplot.Preplot(2)
+thinkplot.Pmfs([pmf, biased])
+thinkplot.Config(xlabel = 'Number of children', y label = 'PMF')
+
+pmf.Mean()
+
+biased.Mean()
+
+
+###Exercise 3-2
+
+PmfMean = statistics.mean(pmf)
+           
+PmfVar = statistics.variance(pmf, PmfMean)
+
+
+###Exercise 4-1
+
+#My birth weight was 7 lbs, 3 oz or approx 7.19 lbs
+#I was not the first born so i will be using the 'other_cdf'
+
+other_cdf.PercentileRank(7.19)
+
+#According to this i was only in the 43rd percentile for weight. I dont have to apologize to my mom.
+
+###Exercise 4-2
+
+t = np.random.random(1000)
+
+pmf = thinkstats.Pmf(t)
+thinkplot.Pmf(pmf, linewidth = 0.01)
+thinkplot.Config(xlabel='Random Number', ylabel = 'PMF)
+
+                 
+cdf = thinkstats2.Cdf(t)
+thinkplot.Cdf(cdf)
+thinkplot.Config(xlabel='Random Number', ylabel = 'CDF)                 
